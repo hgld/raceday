@@ -1,0 +1,152 @@
+{
+  "_note": "Fixture for visual comparison against design/Main.dc.html only. The competitor times and places are the sample values printed in the mockup, NOT looked-up results — never copy this into races/.",
+  "id": "mockup-intel",
+  "planVersion": 3,
+  "updatedAt": "2026-09-11T21:05:00-04:00",
+  "event": {
+    "name": "Mens Masters (21+) 4+",
+    "number": 24,
+    "regatta": "Muskoka Fall Classic",
+    "date": "2026-09-12",
+    "time": "11:50",
+    "timezone": "America/Toronto",
+    "format": "sprint",
+    "distance": 1000
+  },
+  "venue": {
+    "name": "Gull Lake Rotary Park",
+    "town": "Gravenhurst, ON",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gull+Lake+Rotary+Park+Gravenhurst+ON",
+    "parkingMapUrl": null
+  },
+  "links": {
+    "regattaCentral": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
+    "draw": null,
+    "results": "https://www.regattacentral.com/regatta/results/?job_id=10552"
+  },
+  "delayMinutes": 10,
+  "milestones": [
+    { "label": "Last significant food", "minutes": 35, "kind": "normal" },
+    { "label": "Arrive, unload, rig, check boat", "minutes": 30, "kind": "normal" },
+    { "label": "Change, pee, hydrate", "minutes": 20, "kind": "normal" },
+    { "label": "On-land stretch and warm-up", "minutes": 30, "kind": "normal" },
+    { "label": "Hands on — walk to control", "minutes": 5, "kind": "handsOn" },
+    { "label": "Launch — on-water warm-up", "minutes": 45, "kind": "normal" },
+    { "label": "Starting area — ready to be called", "minutes": 5, "kind": "normal" }
+  ],
+  "plan": "FOCUS: Fast hands, SLLLLOOOWWWW recovery, especially the last quarter.",
+  "kit": [
+    "Photo ID (original — no copies)",
+    "Singlet and navy shorts",
+    "Water bottle",
+    "Sunglasses, sunscreen, hat",
+    "Wrenches",
+    "Lunch and snacks",
+    "Portable chair",
+    "Change of clothes",
+    "Towel",
+    "Go Pro",
+    "Speed Coach"
+  ],
+  "intel": {
+    "precedingEvent": { "number": 23, "name": "Womens Masters 2x", "time": "11:44" },
+    "lane": 4,
+    "bow": null,
+    "startInterval": null,
+    "competitors": [
+      {
+        "club": "Western Reserve",
+        "lane": 1,
+        "ageCategory": "D",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:37.8",
+            "adjusted": true,
+            "place": 1,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      },
+      {
+        "club": "London Western",
+        "lane": 2,
+        "ageCategory": "E",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:38.7",
+            "adjusted": true,
+            "place": 2,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      },
+      {
+        "club": "Endeavor Racing",
+        "lane": 3,
+        "ageCategory": "E",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:50.9",
+            "adjusted": true,
+            "place": 4,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      },
+      {
+        "club": "Argonaut",
+        "isUs": true,
+        "lane": 4,
+        "ageCategory": "D",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:53.7",
+            "adjusted": true,
+            "place": 4,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      },
+      {
+        "club": "PNRA / Mercer",
+        "lane": 5,
+        "ageCategory": "D",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:58.1",
+            "adjusted": true,
+            "place": 5,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      },
+      {
+        "club": "Wyandotte",
+        "lane": 6,
+        "ageCategory": "E",
+        "history": [
+          {
+            "event": "Muskoka Fall Classic 2025",
+            "time": "3:58.3",
+            "adjusted": true,
+            "place": 6,
+            "source": "https://www.regattacentral.com/regatta/results/?job_id=9876"
+          }
+        ]
+      }
+    ],
+    "summary": "Six crews. Western Reserve won this event last year in 3:37.8 adjusted; you were 4th in 3:53.7. London Western and Wyandotte race as E crews and carry a bigger handicap.",
+    "sources": [
+      {
+        "url": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
+        "fetchedAt": "2026-09-11T20:40:00-04:00"
+      }
+    ],
+    "enrichedAt": "2026-09-11T20:40:00-04:00"
+  }
+}

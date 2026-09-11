@@ -168,7 +168,8 @@ export function identityBlock(race, opts) {
  * The clock block. Structure is built once; `update(now)` rewrites only the
  * text that changed, and rebuilds the cells only when the state changes.
  */
-export function clockBlock(race) {
+export function clockBlock(race, opts) {
+  const o = opts || {};
   const tz = zoneOf(race);
   const e = race.event || {};
   const links = race.links || {};
@@ -239,6 +240,8 @@ export function clockBlock(race) {
     drawn = key;
     const twoUp = state === 'ahead' || state === 'pre';
     root.classList.toggle('is-racing', state === 'racing');
+    // The day before, the digits read "14h 02m" — longer, so smaller.
+    root.classList.toggle('is-coarse', state === 'ahead');
     show(nextAt, state === 'pre' || state === 'launched');
     show(rightChip, state === 'launched' && !!hands);
     show(rightResults, state === 'racing' && !!links.results);
@@ -263,6 +266,7 @@ export function clockBlock(race) {
       setText(nextNow, 'Started ' + fmtTime(s.start, tz));
       setText(leftCap, 'Elapsed');
       setText(leftBig, fmtElapsed(now - s.start));
+      setText(rightCap, '');
       return;
     }
 
@@ -285,11 +289,11 @@ export function clockBlock(race) {
         setText(leftAt, fmtTime(s.hands.at, tz));
         setText(rightCap, 'Race start');
         setText(rightMid, fmtCoarse(s.start - now));
-        setText(rightAt, startAtLine(race, s.start, tz));
+        setText(rightAt, startAtLine(race, s.start, tz, o.mode));
       } else {
         setText(leftCap, 'Race start');
         setText(leftBig, fmtCoarse(s.start - now));
-        setText(leftAt, startAtLine(race, s.start, tz));
+        setText(leftAt, startAtLine(race, s.start, tz, o.mode));
       }
       return;
     }
@@ -306,11 +310,11 @@ export function clockBlock(race) {
       setText(leftAt, fmtTime(s.hands.at, tz));
       setText(rightCap, 'Race start');
       setText(rightMid, fmtCountdown(s.start - now));
-      setText(rightAt, startAtLine(race, s.start, tz));
+      setText(rightAt, startAtLine(race, s.start, tz, o.mode));
     } else {
       setText(leftCap, 'Race start');
       setText(leftBig, fmtCountdown(s.start - now));
-      setText(leftAt, startAtLine(race, s.start, tz));
+      setText(leftAt, startAtLine(race, s.start, tz, o.mode));
       if (s.hands) {
         setText(rightCap, 'Hands on');
         setText(rightChip.lastChild, fmtTimeShort(s.hands.at, tz));
@@ -321,8 +325,11 @@ export function clockBlock(race) {
   return { el: root, update };
 }
 
-function startAtLine(race, start, tz) {
-  return fmtTime(start, tz) + (race.delayMinutes > 0 ? ' · +' + race.delayMinutes + ' min late' : '');
+// Owner mode spells the delay out beside race start; the crew view already
+// carries the orange badge up in the identity block.
+function startAtLine(race, start, tz, mode) {
+  const late = mode === 'owner' && race.delayMinutes > 0;
+  return fmtTime(start, tz) + (late ? ' · +' + race.delayMinutes + ' min late' : '');
 }
 
 function placeOf(race) {
@@ -477,7 +484,10 @@ export function intelBlock(race) {
           if (best.source) hosts.add(sourceLabel(best.source));
           if (best.adjusted) anyAdjusted = true;
         }
-        const club = el('span', { class: 'club', text: c.club });
+        const club = el('span', {
+          class: 'club',
+          text: c.club + (c.isUs ? ' (us)' : ''),
+        });
         if (c.crew) club.appendChild(el('small', { text: c.crew }));
         const row = el('div', { class: 'comp-row' + (c.isUs ? ' is-us' : '') }, [
           el('span', {

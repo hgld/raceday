@@ -523,6 +523,14 @@ a {
 .cell.is-quiet .cap {
   color: var(--clock-faint);
 }
+/* The day-before state shows "14h 02m" rather than a ticking clock: longer
+   strings, so the mockup drops a size. */
+.clock.is-coarse .cell .big {
+  font-size: 34px;
+}
+.clock.is-coarse .cell .mid {
+  font-size: 22px;
+}
 .chip {
   display: inline-flex;
   align-items: center;
@@ -1109,6 +1117,12 @@ a {
   }
   .mode-owner .cell .mid {
     font-size: 40px;
+  }
+  .mode-owner .clock.is-coarse .cell .big {
+    font-size: 48px;
+  }
+  .mode-owner .clock.is-coarse .cell .mid {
+    font-size: 30px;
   }
   .mode-owner .cols {
     display: grid;

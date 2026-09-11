@@ -46,7 +46,7 @@ function render(race) {
   const title = [race.event.name, race.event.regatta].filter(Boolean).join(' · ');
   if (title) document.title = title + ' — Race Day';
 
-  const clock = clockBlock(race);
+  const clock = clockBlock(race, { mode: 'crew' });
   const timeline = timelineBlock(race);
 
   const footer = footerBlock({
@@ -61,13 +61,15 @@ function render(race) {
   });
 
   app.replaceChildren(
-    identityBlock(race, { mode: 'crew' }),
-    clock.el,
-    timeline.el,
-    planBlock(race) || el('span', { hidden: true }),
-    intelBlock(race) || el('span', { hidden: true }),
-    kitBlock(race) || el('span', { hidden: true }),
-    footer
+    ...[
+      identityBlock(race, { mode: 'crew' }),
+      clock.el,
+      timeline.el,
+      planBlock(race),
+      intelBlock(race),
+      kitBlock(race),
+      footer,
+    ].filter(Boolean)
   );
 
   startTicker([clock, timeline]);
