@@ -450,9 +450,10 @@ export function intelBlock(race) {
 
   const position = isHead ? x.bow : x.lane;
   if (position != null) {
-    const bits = [];
-    if (e.distance) bits.push(e.distance + ' m');
-    bits.push(isHead ? 'head race' : 'sprint');
+    // "1000 m sprint · 6 lanes" — distance and format read as one phrase.
+    const bits = [[e.distance ? e.distance + ' m' : null, isHead ? 'head race' : 'sprint']
+      .filter(Boolean)
+      .join(' ')];
     if (isHead && x.startInterval) bits.push(x.startInterval + 's between crews');
     else if (!isHead && x.competitors.length) bits.push(x.competitors.length + ' lanes');
     cards.push(
