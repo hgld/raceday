@@ -1,7 +1,7 @@
 {
   "id": "muskoka-fall-classic-2026-e24",
   "planVersion": 1,
-  "updatedAt": "2026-09-11T21:05:00-04:00",
+  "updatedAt": "2026-09-11T23:09:31.873Z",
   "event": {
     "name": "Mens Masters (21+) 4+",
     "number": 24,
@@ -9,18 +9,18 @@
     "date": "2026-09-12",
     "time": "11:50",
     "timezone": "America/Toronto",
-    "format": "sprint",
+    "format": "head",
     "distance": null
   },
   "venue": {
     "name": "Gull Lake Rotary Park",
     "town": "Gravenhurst, ON",
-    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gull+Lake+Rotary+Park+Gravenhurst+ON",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gull%20Lake%20Rotary%20Park%2C%20Gravenhurst%2C%20ON",
     "parkingMapUrl": null
   },
   "links": {
     "regattaCentral": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
-    "draw": null,
+    "draw": "https://www.regattacentral.com/v3/cms2/regatta/10552/heat_sheet?org_id=0",
     "results": null
   },
   "delayMinutes": 0,
@@ -76,19 +76,61 @@
     "Speed Coach"
   ],
   "intel": {
-    "precedingEvent": null,
+    "precedingEvent": {
+      "number": 23,
+      "name": "Mens U19 4+",
+      "time": "11:50"
+    },
     "lane": null,
     "bow": null,
     "startInterval": null,
-    "competitors": [],
-    "summary": "",
-    "sources": [
+    "competitors": [
       {
-        "url": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
-        "fetchedAt": "2026-09-11T20:40:00-04:00",
-        "note": "RC showed 'No competitors to display' and no race time at fetch; event name, number, regatta, date and venue came from this page."
+        "club": "Argonaut Rowing Club",
+        "crew": "Holmes, J. · avg 53",
+        "lane": null,
+        "bow": null,
+        "ageCategory": null,
+        "isUs": false,
+        "history": []
+      },
+      {
+        "club": "Argonaut Rowing Club",
+        "crew": "Dillon, H. · avg 50",
+        "lane": null,
+        "bow": null,
+        "ageCategory": null,
+        "isUs": true,
+        "history": []
+      },
+      {
+        "club": "South Niagara Rowing Club",
+        "crew": "Madronich, J. · avg 59",
+        "lane": null,
+        "bow": null,
+        "ageCategory": null,
+        "isUs": false,
+        "history": []
       }
     ],
-    "enrichedAt": "2026-09-11T20:40:00-04:00"
+    "summary": "Three crews: both Argonaut boats are entered — ours (Dillon, avg 50) and Holmes (avg 53) — plus South Niagara (avg 59). Bow numbers are drawn after entries close and this event uses no handicaps. RC posted no 2025 or 2024 results; 2025 was timed on CrewTimer over a 3.0 km head course, so there are no prior times. Division 3 (events 21–30) launches 10:50 for an 11:50 start.",
+    "sources": [
+      {
+        "url": "https://www.regattacentral.com/v3/regatta/10552",
+        "fetchedAt": "2026-09-11T23:09:31.873Z",
+        "note": "captured from a browser session"
+      },
+      {
+        "url": "https://www.regattacentral.com/v3/api/regatta/10552/events",
+        "fetchedAt": "2026-09-11T23:09:31.873Z",
+        "note": null
+      },
+      {
+        "url": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors/data",
+        "fetchedAt": "2026-09-11T23:09:31.873Z",
+        "note": null
+      }
+    ],
+    "enrichedAt": "2026-09-11T23:09:31.873Z"
   }
 }

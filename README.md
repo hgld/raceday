@@ -22,8 +22,29 @@ node --test                   # core maths, formatting, encoding
 node scripts/enrich.mjs <regatta-central-event-url> --out races/<id>.json
 ```
 
-Prints a field-by-field found/missing report, a crew link, and an owner import
-link (`/#import=<payload>`) that adds the race to the browser.
+Reads the RC event page, the regatta header, the draw and the entry list; looks
+for prior results at the previous editions; and prints a field-by-field
+found/missing report, a crew link, and an owner import link
+(`/#import=<payload>`) that adds the race to the browser. `--merge
+races/<id>.json` refreshes only `event`, `venue`, `links` and `intel`, leaving
+the milestones, plan, kit, delay and plan version alone. `--us "Dillon"` marks
+which entry is ours; `--summary "…"` writes the intel paragraph.
+
+Anything RC has not published comes out absent, never guessed.
+
+### When RC blocks the fetch
+
+Regatta Central is behind a Cloudflare bot check, so a plain HTTP fetch is
+usually refused. The script does not try to get around it — it prints the list
+of URLs to save from a browser you already use, and `--capture <dir>` parses
+those saved copies instead:
+
+```
+node scripts/enrich.mjs <event-url> --capture .capture/10552
+```
+
+The RC parsing all lives in `scripts/rc.mjs`, with captured real responses
+under `test/fixtures/rc/` as its tests.
 
 ## Docs
 
