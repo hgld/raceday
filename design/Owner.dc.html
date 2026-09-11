@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+  <style>
+    body { margin: 0; background: #f3f1ea; color: #141c2b; font-family: "Barlow", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #0a5b63; } a:hover { color: #16304f; }
+    .disp { font-family: "Barlow Condensed", "Arial Narrow", Arial, sans-serif; text-transform: uppercase; letter-spacing: 0.02em; }
+    .mono { font-family: "IBM Plex Mono", Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+    .cap { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; }
+    .btn { font-size: 14px; font-weight: 500; border: 1px solid #dcd8cc; background: #fbfaf6; padding: 8px 14px; border-radius: 6px; color: #141c2b; }
+  </style>
+</helmet>
+
+<div style="width: 1200px; min-height: 900px; background: #f3f1ea; padding: 24px 32px 48px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 22px;">
+
+  <!-- top bar -->
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 14px; border-bottom: 2px solid #16304f;">
+    <div class="disp" style="font-size: 22px; font-weight: 700; color: #16304f; line-height: 1;">Race Day <span style="font-family: Barlow, sans-serif; font-size: 11px; letter-spacing: 0.14em; color: #8a92a0; margin-left: 6px;">MY RACES</span></div>
+    <div style="display: flex; gap: 6px; align-items: center;">
+      <span style="font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #16304f; color: #ffffff;">Mens Masters 4+ · Muskoka</span>
+      <span style="font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #fbfaf6; border: 1px solid #dcd8cc; color: #4b5566;">Masters 4x · Head of the Trent</span>
+      <span style="font-size: 14px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: #fbfaf6; border: 1px dashed #dcd8cc; color: #8a92a0;">+ New race</span>
+    </div>
+  </div>
+
+  <!-- new race from RC link -->
+  <div style="display: flex; align-items: center; gap: 12px; background: #fbfaf6; border: 1px solid #dcd8cc; border-radius: 8px; padding: 12px 14px;">
+    <div class="cap" style="color: #8a92a0; white-space: nowrap;">New race</div>
+    <div style="flex-grow: 1; display: flex; align-items: center; gap: 10px; border: 1px solid #dcd8cc; border-radius: 6px; padding: 9px 12px; background: #f3f1ea; color: #8a92a0; font-size: 14px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a92a0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"></path><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"></path></svg>
+      <span>Paste a Regatta Central event link — everything else is looked up</span>
+    </div>
+    <span class="btn" style="background: #0e7c86; border-color: #0e7c86; color: #ffffff;">Build race</span>
+  </div>
+
+  <!-- race header + actions -->
+  <div style="display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: end;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <div class="cap" style="color: #8a92a0;">Saturday 12 September · Race 11:50 am</div>
+      <div class="disp" style="font-size: 52px; line-height: 0.95; font-weight: 700; color: #16304f;">Mens Masters (21+) 4+</div>
+      <div style="font-size: 17px; font-weight: 500; color: #4b5566;">Muskoka Fall Classic · Event #24</div>
+      <div style="display: flex; align-items: center; gap: 16px; margin-top: 4px; font-size: 14px; color: #4b5566;">
+        <span style="display: flex; align-items: center; gap: 6px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0e7c86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+          Gull Lake Rotary Park, Gravenhurst <a href="#" style="font-weight: 600; text-decoration: none; border-bottom: 1px solid #0e7c86; margin-left: 4px;">Map</a>
+        </span>
+        <a href="#" style="text-decoration: none; border-bottom: 1px solid #dcd8cc; color: #4b5566;">Regatta Central</a>
+        <a href="#" style="text-decoration: none; border-bottom: 1px solid #dcd8cc; color: #4b5566;">Draw</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; align-items: flex-end;">
+      <div style="display: flex; gap: 8px;">
+        <span class="btn">Edit plan</span>
+        <span class="btn">Refresh intel</span>
+        <span class="btn" style="background: #16304f; border-color: #16304f; color: #ffffff;">Copy crew link</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #4b5566;">
+        <span>Running late by</span>
+        <span class="mono" style="border: 1px solid #dcd8cc; background: #fbfaf6; border-radius: 6px; padding: 4px 10px; width: 36px; text-align: right; color: #c9541c; font-weight: 500;">10</span>
+        <span>min</span>
+        <span style="font-size: 11px; color: #8a92a0; margin-left: 6px;">Plan v3 · crew link resent Fri 21:05</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- clock, wide -->
+  <div style="background: #16304f; color: #ffffff; border-radius: 8px; padding: 22px 26px; display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 28px; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 4px; border-right: 1px solid rgba(255,255,255,0.14); padding-right: 24px;">
+      <div class="cap" style="color: #f08a55;">Next</div>
+      <div style="font-size: 26px; font-weight: 600; line-height: 1.15;">Hands on — walk to control</div>
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <span class="mono" style="font-size: 18px; opacity: 0.8;">11:05 am</span>
+        <span class="mono" style="font-size: 18px; color: #f08a55;">in 9:42</span>
+      </div>
+      <div style="font-size: 13px; opacity: 0.7; margin-top: 2px;">Now: on-land stretch and warm-up</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <div class="cap" style="color: rgba(255,255,255,0.7);">Hands on</div>
+      <div class="mono" style="font-size: 72px; line-height: 1; font-weight: 500; letter-spacing: -0.02em;">9:42</div>
+      <div class="mono" style="font-size: 13px; opacity: 0.7;">11:05 am</div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <div class="cap" style="color: rgba(255,255,255,0.7);">Race start</div>
+      <div class="mono" style="font-size: 40px; line-height: 1; font-weight: 500; opacity: 0.9;">1:04:42</div>
+      <div class="mono" style="font-size: 13px; opacity: 0.7;">12:00 pm · +10 min late</div>
+    </div>
+  </div>
+
+  <!-- two columns: timeline | intel -->
+  <div style="display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: start;">
+    <div style="display: flex; flex-direction: column; gap: 0px; border-top: 1px solid #dcd8cc;">
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df; color: #9aa1ad;"><span class="mono" style="font-size: 17px;">9:10 am</span><span class="mono" style="font-size: 13px;">−2h 50m</span><span style="font-size: 16px; text-decoration: line-through;">Last significant food</span><span style="font-size: 12px;">35 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df; color: #9aa1ad;"><span class="mono" style="font-size: 17px;">9:45 am</span><span class="mono" style="font-size: 13px;">−2h 15m</span><span style="font-size: 16px; text-decoration: line-through;">Arrive, unload, rig, check boat</span><span style="font-size: 12px;">30 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df; color: #9aa1ad;"><span class="mono" style="font-size: 17px;">10:15 am</span><span class="mono" style="font-size: 13px;">−1h 45m</span><span style="font-size: 16px; text-decoration: line-through;">Change, pee, hydrate</span><span style="font-size: 12px;">20 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 12px; margin: 2px 0; background: #fbe6da; border-radius: 6px; box-shadow: inset 4px 0 0 #c9541c; color: #c9541c;"><span class="mono" style="font-size: 17px; font-weight: 500;">10:35 am</span><span class="mono" style="font-size: 13px;">−1h 25m</span><span style="font-size: 16px; font-weight: 600;">On-land stretch and warm-up</span><span style="font-size: 12px;">30 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df; color: #16304f;"><span class="mono" style="font-size: 17px; font-weight: 700;">11:05 am</span><span class="mono" style="font-size: 13px; color: #8a92a0;">−55m</span><span class="disp" style="font-size: 19px; font-weight: 700;">Hands on — walk to control</span><span style="font-size: 12px; color: #8a92a0;">5 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df;"><span class="mono" style="font-size: 17px;">11:10 am</span><span class="mono" style="font-size: 13px; color: #8a92a0;">−50m</span><span style="font-size: 16px;">Launch — on-water warm-up and practice</span><span style="font-size: 12px; color: #8a92a0;">45 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 11px 8px; border-bottom: 1px solid #ebe8df;"><span class="mono" style="font-size: 17px;">11:55 am</span><span class="mono" style="font-size: 13px; color: #8a92a0;">−5m</span><span style="font-size: 16px;">Starting area — ready to be called</span><span style="font-size: 12px; color: #8a92a0;">5 min</span></div>
+      <div style="display: grid; grid-template-columns: 90px 70px 1fr auto; gap: 12px; align-items: center; padding: 13px 8px; border-bottom: 1px solid #dcd8cc; color: #16304f;"><span class="mono" style="font-size: 17px; font-weight: 700;">12:00 pm</span><span class="mono" style="font-size: 13px; color: #8a92a0;">start</span><span class="disp" style="font-size: 21px; font-weight: 700;">Race start</span><span></span></div>
+      <div style="margin-top: 22px; display: flex; flex-direction: column; gap: 8px;">
+        <div class="disp" style="font-size: 20px; font-weight: 700; color: #16304f;">Race plan</div>
+        <div style="background: #d9eef0; color: #0a5b63; padding: 14px 16px; border-radius: 6px; font-size: 17px; font-weight: 500; line-height: 1.4;">FOCUS: Fast hands, SLLLLOOOWWWW recovery, especially the last quarter.</div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px;">
+        <div class="disp" style="font-size: 20px; font-weight: 700; color: #16304f;">Race intel</div>
+        <div style="font-size: 11px; color: #8a92a0;">Regatta Central · fetched Fri 20:40</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px;">
+        <div style="background: #fbfaf6; border: 1px solid #dcd8cc; border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px;">
+          <div class="cap" style="color: #8a92a0;">Preceding event</div>
+          <div style="font-size: 15px; font-weight: 600;">#23 Womens Masters 2x</div>
+          <div class="mono" style="font-size: 13px; color: #4b5566;">11:44 am</div>
+        </div>
+        <div style="background: #fbfaf6; border: 1px solid #dcd8cc; border-radius: 6px; padding: 12px 14px; display: flex; flex-direction: column; gap: 4px;">
+          <div class="cap" style="color: #8a92a0;">Lane</div>
+          <div class="disp" style="font-size: 34px; line-height: 1; font-weight: 700; color: #16304f;">4</div>
+          <div class="mono" style="font-size: 13px; color: #4b5566;">1000 m sprint · 6 lanes</div>
+        </div>
+      </div>
+      <div style="background: #fbfaf6; border: 1px solid #dcd8cc; border-radius: 6px; padding: 14px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="cap" style="color: #8a92a0;">Competitors</div>
+        <div style="font-size: 14px; line-height: 1.45; color: #4b5566;">Six crews. Western Reserve won this event last year in 3:37.8 adjusted; you were 4th in 3:53.7. London Western and Wyandotte race as E crews and carry a bigger handicap.</div>
+        <div style="display: flex; flex-direction: column; border-top: 1px solid #ebe8df;">
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 0; border-bottom: 1px solid #ebe8df; align-items: center;"><span class="mono" style="font-size: 13px; color: #8a92a0;">L1</span><span style="font-size: 14px; font-weight: 500;">Western Reserve</span><span style="font-size: 12px; color: #8a92a0;">D</span><span class="mono" style="font-size: 13px; text-align: right;">3:37.8 · 1st</span></div>
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 0; border-bottom: 1px solid #ebe8df; align-items: center;"><span class="mono" style="font-size: 13px; color: #8a92a0;">L2</span><span style="font-size: 14px; font-weight: 500;">London Western</span><span style="font-size: 12px; color: #8a92a0;">E</span><span class="mono" style="font-size: 13px; text-align: right;">3:38.7 · 2nd</span></div>
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 0; border-bottom: 1px solid #ebe8df; align-items: center;"><span class="mono" style="font-size: 13px; color: #8a92a0;">L3</span><span style="font-size: 14px; font-weight: 500;">Endeavor Racing</span><span style="font-size: 12px; color: #8a92a0;">E</span><span class="mono" style="font-size: 13px; text-align: right;">3:50.9 · 4th</span></div>
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 14px; margin: 0 -14px; border-bottom: 1px solid #ebe8df; align-items: center; background: #d9eef0; color: #0a5b63;"><span class="mono" style="font-size: 13px; font-weight: 500;">L4</span><span style="font-size: 14px; font-weight: 600;">Argonaut (us)</span><span style="font-size: 12px;">D</span><span class="mono" style="font-size: 13px; text-align: right;">3:53.7 · 4th</span></div>
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 0; border-bottom: 1px solid #ebe8df; align-items: center;"><span class="mono" style="font-size: 13px; color: #8a92a0;">L5</span><span style="font-size: 14px; font-weight: 500;">PNRA / Mercer</span><span style="font-size: 12px; color: #8a92a0;">D</span><span class="mono" style="font-size: 13px; text-align: right;">3:58.1 · 5th</span></div>
+          <div style="display: grid; grid-template-columns: 30px 1fr 30px 90px; gap: 8px; padding: 8px 0; align-items: center;"><span class="mono" style="font-size: 13px; color: #8a92a0;">L6</span><span style="font-size: 14px; font-weight: 500;">Wyandotte</span><span style="font-size: 12px; color: #8a92a0;">E</span><span class="mono" style="font-size: 13px; text-align: right;">3:58.3 · 6th</span></div>
+        </div>
+        <div style="font-size: 11px; color: #8a92a0;">Times are last year's adjusted results at this event · RegattaMaster</div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

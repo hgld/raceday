@@ -1,0 +1,13 @@
+{
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 390, "h": 1680, "title": "Crew view (phone)" },
+    { "file": "Owner.dc.html", "x": 480, "y": 0, "w": 1200, "h": 1000, "title": "Owner view (desktop)" },
+    { "file": "ClockStates.dc.html", "x": 480, "y": 1140, "w": 1200, "h": 360, "title": "Clock states" }
+  ],
+  "annotations": [
+    { "id": "note-crew", "x": 0, "y": -150, "w": 380, "text": "Crew view: what a share link opens. Read-only — no editing, no race switcher. Event is the headline; regatta beneath; Map link on the venue line." },
+    { "id": "note-clock", "x": 480, "y": -150, "w": 560, "text": "Clock block: NEXT on top (always), HANDS ON gets the big digits until it passes, RACE START alongside. A 'running late' value shifts every time and shows an orange badge." },
+    { "id": "note-intel", "x": 1080, "y": -150, "w": 600, "text": "Race intel is AI-filled from the Regatta Central link alone: event, regatta, venue/map, preceding event, lane (hidden for head races), competitors with last year's results. Every card carries its source and fetch time. Competitor numbers here are sample values from your sheet." }
+  ],
+  "launch": { "view": "canvas" }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "muskoka-fall-classic-2026-e24",
+  "planVersion": 1,
+  "updatedAt": "2026-09-11T21:05:00-04:00",
+  "event": {
+    "name": "Mens Masters (21+) 4+",
+    "number": 24,
+    "regatta": "Muskoka Fall Classic",
+    "date": "2026-09-12",
+    "time": "11:50",
+    "timezone": "America/Toronto",
+    "format": "sprint",
+    "distance": null
+  },
+  "venue": {
+    "name": "Gull Lake Rotary Park",
+    "town": "Gravenhurst, ON",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Gull+Lake+Rotary+Park+Gravenhurst+ON",
+    "parkingMapUrl": null
+  },
+  "links": {
+    "regattaCentral": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
+    "draw": null,
+    "results": null
+  },
+  "delayMinutes": 0,
+  "milestones": [
+    {
+      "label": "Last significant food",
+      "minutes": 35,
+      "kind": "normal"
+    },
+    {
+      "label": "Arrive, unload, rig, check boat",
+      "minutes": 30,
+      "kind": "normal"
+    },
+    {
+      "label": "Change, pee, hydrate",
+      "minutes": 20,
+      "kind": "normal"
+    },
+    {
+      "label": "On-land stretch and warm-up",
+      "minutes": 30,
+      "kind": "normal"
+    },
+    {
+      "label": "Hands on — walk to control",
+      "minutes": 5,
+      "kind": "handsOn"
+    },
+    {
+      "label": "Launch — on-water warm-up and practice",
+      "minutes": 45,
+      "kind": "normal"
+    },
+    {
+      "label": "Starting area — ready to be called",
+      "minutes": 5,
+      "kind": "normal"
+    }
+  ],
+  "plan": "FOCUS: Fast hands, SLLLLOOOWWWW recovery, especially the last quarter.",
+  "kit": [
+    "Photo ID (original — no copies)",
+    "Singlet and navy shorts",
+    "Water bottle",
+    "Sunglasses, sunscreen, hat",
+    "Wrenches",
+    "Lunch and snacks",
+    "Portable chair",
+    "Change of clothes",
+    "Towel",
+    "Go Pro",
+    "Speed Coach"
+  ],
+  "intel": {
+    "precedingEvent": null,
+    "lane": null,
+    "bow": null,
+    "startInterval": null,
+    "competitors": [],
+    "summary": "",
+    "sources": [
+      {
+        "url": "https://www.regattacentral.com/v3/regatta/10552/event/14/competitors",
+        "fetchedAt": "2026-09-11T20:40:00-04:00",
+        "note": "RC showed 'No competitors to display' and no race time at fetch; event name, number, regatta, date and venue came from this page."
+      }
+    ],
+    "enrichedAt": "2026-09-11T20:40:00-04:00"
+  }
+}
