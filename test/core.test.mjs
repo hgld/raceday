@@ -39,6 +39,30 @@ const muskoka = normaliseRace(
   )
 );
 
+// The worked example from SPEC.md §4: race at 11:50 with the seven standard
+// milestones. Pinned here rather than read from races/, so that editing the
+// real race plan cannot silently change what "the spreadsheet says".
+const spreadsheet = normaliseRace({
+  id: 'spreadsheet-example',
+  event: {
+    name: 'Mens Masters (21+) 4+',
+    regatta: 'Muskoka Fall Classic',
+    date: '2026-09-12',
+    time: '11:50',
+    timezone: TZ,
+  },
+  venue: { name: 'Gull Lake Rotary Park', town: 'Gravenhurst, ON' },
+  milestones: [
+    { label: 'Last significant food', minutes: 35 },
+    { label: 'Arrive, unload, rig, check boat', minutes: 30 },
+    { label: 'Change, pee, hydrate', minutes: 20 },
+    { label: 'On-land stretch and warm-up', minutes: 30 },
+    { label: 'Hands on — walk to control', minutes: 5, kind: 'handsOn' },
+    { label: 'Launch — on-water warm-up', minutes: 45 },
+    { label: 'Starting area — ready to be called', minutes: 5 },
+  ],
+});
+
 /** A wall-clock instant on race day in Toronto. */
 const raceDayAt = (h, m, s = 0) => wallToInstant(2026, 9, 12, h, m, TZ) + s * 1000;
 
@@ -47,7 +71,7 @@ const clockTimes = (race) => buildSchedule(race).map((r) => fmtTime(r.at, TZ));
 /* ------------------------------------------------------- schedule maths */
 
 test('milestone times match the spreadsheet worked back from 11:50', () => {
-  assert.deepEqual(clockTimes(muskoka), [
+  assert.deepEqual(clockTimes(spreadsheet), [
     '9:00 am', // last significant food
     '9:35 am', // arrive, unload, rig
     '10:05 am', // change, pee, hydrate
@@ -60,14 +84,14 @@ test('milestone times match the spreadsheet worked back from 11:50', () => {
 });
 
 test('a milestone starts at race start minus the sum of it and everything after', () => {
-  const rows = buildSchedule(muskoka);
+  const rows = buildSchedule(spreadsheet);
   assert.deepEqual(
     rows.map((r) => r.before),
     [170, 135, 105, 85, 55, 50, 5, 0]
   );
   assert.equal(rows[4].kind, 'handsOn');
   assert.equal(rows[rows.length - 1].kind, 'raceStart');
-  assert.equal(rows[rows.length - 1].at, raceStart(muskoka));
+  assert.equal(rows[rows.length - 1].at, raceStart(spreadsheet));
 });
 
 test('T-minus and duration labels', () => {
@@ -84,7 +108,7 @@ test('T-minus and duration labels', () => {
 /* -------------------------------------------------------------- delays */
 
 test('a delay shifts every row but not the scheduled time', () => {
-  const late = normaliseRace({ ...muskoka, delayMinutes: 10 });
+  const late = normaliseRace({ ...spreadsheet, delayMinutes: 10 });
   assert.deepEqual(clockTimes(late), [
     '9:10 am',
     '9:45 am',
@@ -98,7 +122,7 @@ test('a delay shifts every row but not the scheduled time', () => {
   // The identity line keeps the scheduled time; only the clock moves.
   assert.equal(fmtTime(scheduledStart(late), TZ), '11:50 am');
   assert.equal(fmtTime(raceStart(late), TZ), '12:00 pm');
-  assert.equal(raceStart(late) - raceStart(muskoka), 10 * MS_MIN);
+  assert.equal(raceStart(late) - raceStart(spreadsheet), 10 * MS_MIN);
 });
 
 /* --------------------------------------------------- countdown formats */
@@ -156,7 +180,7 @@ test('stamps render in the event zone', () => {
 /* --------------------------------------------------------- clock state */
 
 test('the clock walks through its four states', () => {
-  const late = normaliseRace({ ...muskoka, delayMinutes: 10 });
+  const late = normaliseRace({ ...spreadsheet, delayMinutes: 10 });
 
   // The evening before: a different day in the event's zone, so no ticking.
   const friday = wallToInstant(2026, 9, 11, 21, 3, TZ);
@@ -190,6 +214,15 @@ test('the clock walks through its four states', () => {
   assert.equal(fmtElapsed(raceDayAt(12, 3, 12) - racing.start), '+3:12');
 });
 
+test('the real race plan launches inside the regatta window', () => {
+  // Muskoka lists Division 3 (events 21-30) launching 10:50 for an 11:50 start.
+  const rows = buildSchedule(muskoka);
+  const launch = rows.find((r) => /^Launch/.test(r.label));
+  assert.equal(fmtTime(launch.at, TZ), '10:50 am');
+  assert.equal(fmtTime(rows[rows.length - 1].at, TZ), '11:50 am');
+  assert.equal(fmtTime(rows[0].at, TZ), '8:50 am');
+});
+
 test('with no race time there is nothing to count down to', () => {
   const tbc = normaliseRace({ ...muskoka, event: { ...muskoka.event, time: null } });
   assert.equal(raceStart(tbc), null);
@@ -199,8 +232,8 @@ test('with no race time there is nothing to count down to', () => {
 
 test('with no hands-on milestone, race start gets the big digits', () => {
   const flat = normaliseRace({
-    ...muskoka,
-    milestones: muskoka.milestones.map((m) => ({ ...m, kind: 'normal' })),
+    ...spreadsheet,
+    milestones: spreadsheet.milestones.map((m) => ({ ...m, kind: 'normal' })),
   });
   const s = clockState(flat, raceDayAt(10, 55));
   assert.equal(s.hands, null);
@@ -294,7 +327,7 @@ test('the compact form keeps every owner-authored field', () => {
 /* ------------------------------------------------------------ calendar */
 
 test('the calendar export covers the whole day and carries the timeline', () => {
-  const ics = buildIcs(muskoka, 'https://example.test/r/#abc');
+  const ics = buildIcs(spreadsheet, 'https://example.test/r/#abc');
   assert.match(ics, /BEGIN:VEVENT/);
   assert.match(ics, /DTSTART:20260912T130000Z/); // 9:00 am Toronto
   assert.match(ics, /DTEND:20260912T160500Z/); // race start + 15 min

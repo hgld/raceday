@@ -1,7 +1,7 @@
 {
   "id": "muskoka-fall-classic-2026-e24",
-  "planVersion": 1,
-  "updatedAt": "2026-09-11T23:09:31.873Z",
+  "planVersion": 2,
+  "updatedAt": "2026-09-11T19:30:00-04:00",
   "event": {
     "name": "Mens Masters (21+) 4+",
     "number": 24,
@@ -52,7 +52,7 @@
     },
     {
       "label": "Launch — on-water warm-up and practice",
-      "minutes": 45,
+      "minutes": 55,
       "kind": "normal"
     },
     {
