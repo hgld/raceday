@@ -6,7 +6,7 @@
   --panel: #fbfaf6;
   --ink: #141c2b;
   --ink-2: #4b5566;
-  --ink-3: #8a92a0;
+  --ink-3: #686e78;
   --line: #dcd8cc;
   --line-2: #ebe8df;
   --navy: #16304f;
@@ -14,10 +14,14 @@
   --accent: #0e7c86;
   --accent-soft: #d9eef0;
   --accent-ink: #0a5b63;
-  --now: #c9541c;
+  --now: #b14a19;
   --now-soft: #fbe6da;
-  --done: #9aa1ad;
+  --done: #686e78;
   --danger: #b3261e;
+  /* Ink that sits on a filled accent/now surface — it flips with the theme,
+     because those fills are dark in light mode and light in dark mode. */
+  --on-accent: #ffffff;
+  --on-now: #ffffff;
 
   /* The clock block is a dark panel in both themes, so it gets its own
      tokens rather than inheriting the inverting --navy pair. */
@@ -40,7 +44,7 @@
     --panel: #161f2e;
     --ink: #eef0f3;
     --ink-2: #b4bcc9;
-    --ink-3: #7c8595;
+    --ink-3: #868f9e;
     --line: #2b3547;
     --line-2: #222b3b;
     --navy: #e6edf7;
@@ -50,8 +54,10 @@
     --accent-ink: #8fdde3;
     --now: #f08a55;
     --now-soft: #3a2416;
-    --done: #5d6675;
+    --done: #868f9e;
     --danger: #ff7b72;
+    --on-accent: #0f1622;
+    --on-now: #0f1622;
 
     --clock-bg: #14243a;
     --clock-ink: #f2f6fc;
@@ -69,7 +75,7 @@
   --panel: #161f2e;
   --ink: #eef0f3;
   --ink-2: #b4bcc9;
-  --ink-3: #7c8595;
+  --ink-3: #868f9e;
   --line: #2b3547;
   --line-2: #222b3b;
   --navy: #e6edf7;
@@ -79,8 +85,10 @@
   --accent-ink: #8fdde3;
   --now: #f08a55;
   --now-soft: #3a2416;
-  --done: #5d6675;
+  --done: #868f9e;
   --danger: #ff7b72;
+  --on-accent: #0f1622;
+  --on-now: #0f1622;
 
   --clock-bg: #14243a;
   --clock-ink: #f2f6fc;
@@ -236,7 +244,7 @@ a {
 .btn.primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 .btn.navy {
   background: var(--navy);
@@ -347,12 +355,17 @@ a {
 .identity .venue svg {
   flex: none;
 }
+/* Small links in the identity block still need a thumb-sized hit area; the
+   negative margin keeps the line looking as tight as the mockup. */
 .identity .venue a,
 .owner-links a {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid var(--accent);
   color: var(--accent-ink);
+  display: inline-block;
+  padding: 11px 6px;
+  margin: -11px -2px;
 }
 .owner-links {
   display: flex;
@@ -382,7 +395,7 @@ a {
 }
 .badge-late {
   font-size: 11px;
-  color: #fff;
+  color: var(--on-now);
   background: var(--now);
   padding: 3px 8px;
   border-radius: 999px;
@@ -550,6 +563,9 @@ a {
   font-weight: 600;
   text-decoration: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  padding: 11px 4px;
+  margin: -11px 0;
 }
 .no-time {
   margin-top: 18px;
@@ -567,6 +583,9 @@ a {
 .tl {
   margin-top: 22px;
   border-top: 1px solid var(--line);
+  list-style: none;
+  margin-left: 0;
+  padding: 0;
 }
 .tl-row {
   display: grid;
@@ -805,6 +824,9 @@ a {
 .kit {
   display: flex;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 .kit-row {
   border-bottom: 1px solid var(--line-2);

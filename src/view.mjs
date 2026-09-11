@@ -63,7 +63,7 @@ function icon(markup, size, opts) {
     (opts && opts.stroke ? opts.stroke : 'currentColor') +
     '" stroke-width="' +
     (opts && opts.width ? opts.width : 2) +
-    '" stroke-linecap="round" stroke-linejoin="round">' +
+    '" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
     markup +
     '</svg>';
   return span.firstChild;
