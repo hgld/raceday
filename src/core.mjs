@@ -209,14 +209,20 @@ export function fmtTMinus(mins) {
   if (!mins) return 'start';
   const h = Math.floor(mins / 60);
   const m = mins % 60;
-  return '−' + (h ? h + 'h ' : '') + (m || !h ? m + 'm' : '');
+  const parts = [];
+  if (h) parts.push(h + 'h');
+  if (m || !h) parts.push(m + 'm');
+  return '−' + parts.join(' ');
 }
 
 /** 35 min / 1 hr 5 min */
 export function fmtDur(mins) {
   const h = Math.floor(mins / 60);
   const m = mins % 60;
-  return (h ? h + ' hr ' : '') + (m ? m + ' min' : '') || '0 min';
+  const parts = [];
+  if (h) parts.push(h + ' hr');
+  if (m) parts.push(m + ' min');
+  return parts.length ? parts.join(' ') : '0 min';
 }
 
 /* ----------------------------------------------------------------- normalise */
